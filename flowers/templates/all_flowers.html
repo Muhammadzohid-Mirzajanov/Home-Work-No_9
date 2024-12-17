@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Barcha Gullar</h2>
+<ul>
+    {% for flower in flowers %}
+        <li>
+            <a href="{% url 'flower_detail' flower.id %}">{{ flower.name }}</a>
+            (Tur: <a href="{% url 'flowers_by_type' flower.type.id %}">{{ flower.type.name }}</a>)
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

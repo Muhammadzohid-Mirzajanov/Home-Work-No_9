@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{{ flower.name }}</h2>
+<p>Tur: <a href="{% url 'flowers_by_type' flower.type.id %}">{{ flower.type.name }}</a></p>
+<p>Haqida: {{ flower.description }}</p>
+<a href="{% url 'all_flowers' %}">Barcha Gullar</a>
+{% endblock %}
