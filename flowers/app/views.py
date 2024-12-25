@@ -37,3 +37,25 @@ def add_type(request):
     else:
         form = TypeForm()
     return render(request, 'add_type.html', {'form': form})
+
+def update_type(request, type_id):
+    type_obj = get_object_or_404(Type, id=type_id)
+    if request.method == 'POST':
+        form = TypeForm(request.POST, instance=type_obj)
+        if form.is_valid():
+            form.save()
+            return redirect('all_flowers')
+    else:
+        form = TypeForm(instance=type_obj)
+    return render(request, 'update_type.html', {'form': form})
+
+def update_flower(request, flower_id):
+    flower = get_object_or_404(Flower, id=flower_id)
+    if request.method == 'POST':
+        form = FlowerForm(request.POST, instance=flower)
+        if form.is_valid():
+            form.save()
+            return redirect('all_flowers')
+    else:
+        form = FlowerForm(instance=flower)
+    return render(request, 'update_flower.html', {'form': form})
