@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yangi gul qo'shish</title>
+</head>
+<body>
+    <h1>Yangi gul qo'shish</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Saqlash</button>
+    </form>
+    <a href="{% url 'all_flowers' %}">Ortga</a>
+</body>
+</html>

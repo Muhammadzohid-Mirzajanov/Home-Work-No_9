@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flowers</title>
+    
     <ul>
         {% load custom_tags %}
         {% get_all_types as all_types %}
@@ -11,6 +12,7 @@
             <li><a href="{% url 'flowers_by_type' type.id %}">{{ type.name }}</a></li>
         {% endfor %}
     </ul>
+    
     
 </head>
 <body>
@@ -24,5 +26,6 @@
         {% block content %}
         {% endblock %}
     </main>
+    
 </body>
 </html>
